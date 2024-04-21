@@ -1,7 +1,14 @@
 <%- include("../partials/header") %>
+
+<span>  
 <h2>
 <%= skill.name %>
+<form action="/skills/<%= skill.id %>?_method=DELETE"
+    class="delete-form" method="POST">
+    <button type="submit">X</button>
+    </form>
 </h2>
+</span> 
 
 <h3>My skill level is 
     <%= skill.level %>
@@ -9,6 +16,4 @@
 <h3>My experience : 
     <%= skill.experience %>
 </h3>
-
-
 <%- include("../partials/footer") %>
