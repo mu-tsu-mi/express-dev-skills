@@ -9,6 +9,7 @@
     </form>
 </h2>
 </span> 
+<p>Click X button to delete this skill</p>
 
 <h3>My skill level is 
     <%= skill.level %>
@@ -16,4 +17,5 @@
 <h3>My experience : 
     <%= skill.experience %>
 </h3>
+<a href="/skills/edit/<%- skill.id %>">Edit this skill</a>
 <%- include("../partials/footer") %>

@@ -5,6 +5,7 @@ module.exports = {
     show,
     new: newSkill,
     create,
+    edit,
     delete: deleteSkill
 }
 
@@ -28,6 +29,12 @@ function create(request, response) {
     console.log(request.body)
     Skill.create(request.body)
     response.redirect("/skills")
+}
+
+function edit(request, response) {
+    response.render("/skills/edit/:id", {
+        skill: Skill.getOne(request.params.id)
+    })
 }
 
 function deleteSkill(request, response) {
