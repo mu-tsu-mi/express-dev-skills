@@ -12,6 +12,7 @@ module.exports = {
     getAll,
     getOne,
     create,
+    updateThisSkill,
     deleteOne
 }
 
@@ -30,6 +31,22 @@ function create(skill) {
     skill.id = lastSkill.id + 1
     // console.log(skill.id)
     skills.push(skill)
+}
+
+function updateThisSkill(id, body) {
+    // console.log(body)
+    id = parseInt(id)
+    skills.find(id => { skills.id === id })
+    
+    const updatedSkill =  {
+        id: id,
+        name: body.name,
+        level: body.level,
+        experience: body.experience
+    }
+    console.log(updatedSkill)
+    const index = skills.findIndex(id => {skills.id === id})
+    skills.splice(index, 1, updatedSkill)
 }
 
 function deleteOne(id) {

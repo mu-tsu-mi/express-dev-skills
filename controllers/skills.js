@@ -6,6 +6,7 @@ module.exports = {
     new: newSkill,
     create,
     edit,
+    updateSkill,
     delete: deleteSkill
 }
 
@@ -32,9 +33,15 @@ function create(request, response) {
 }
 
 function edit(request, response) {
-    response.render("/skills/edit/:id", {
-        skill: Skill.getOne(request.params.id)
+    response.render("skills/edit", {
+        skill: Skill.getOne(request.params.id),
+        title: "Edit skill"
     })
+}
+
+function updateSkill(request, response) {
+    Skill.updateThisSkill(request.params.id, request.body)
+    response.redirect("/skills")
 }
 
 function deleteSkill(request, response) {
